@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Sehajnoor!</title>
+  <style>
+    body {
+      background-image: url('https://th.bing.com/th/id/OIP.5OtNVJyw1KlmIg2jIpHEBQHaEo?w=294&h=183&c=7&r=0&o=7&pid=1.7&rm=3');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Comic Sans MS', cursive;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .container {
+      margin-top: 10vh;
+    }
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      background-color: #ff4081;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.1);
+      background-color: #f50057;
+    }
+    .gif {
+      width: 200px;
+      margin: 20px auto;
+      display: block;
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% {transform: translateY(0);}
+      50% {transform: translateY(-10px);}
+    }
+    .question {
+      margin: 30px auto;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="container">
+    <h1>Happy Birthday Sehajnoor 🎉</h1>
+    <button onclick="startQuiz()">Start</button>
+  </div>
+
+  <div id="quiz" style="display:none;">
+    <h2>Quiz Time 🎲</h2>
+    <div class="question">
+      <p>What’s Sehajnoor’s Dada Ji?</p>
+      <ul>
+        <li><button onclick="nextQuestion(false)">Superman</button></li>
+        <li><button onclick="nextQuestion(true)">Richman (IPHONE WALA)</button></li>
+        <li><button onclick="nextQuestion(false)">Batman</button></li>
+      </ul>
+    </div>
+    <img src="cute1.gif" class="gif">
+    <div class="question" style="display:none;">
+      <p>Our School Time</p>
+      <ul>
+        <li><button onclick="nextQuestion(false)">8 am</button></li>
+        <li><button onclick="nextQuestion(false)">9 am</button></li>
+        <li><button onclick="nextQuestion(true)">10 am😎</button></li>
+      </ul>
+    </div>
+    <img src="cute2.gif" class="gif" style="display:none;">
+    <div class="question" style="display:none;">
+      <p> Sehajnoor’s Favourite Sir</p>
+      <ul>
+        <li><button onclick="nextQuestion(true)">Harpreet sir</button></li>
+        <li><button onclick="nextQuestion(false)">Jaswant PAL</button></li>
+        <li><button onclick="nextQuestion(false)">Harpal sir</button></li>
+      </ul>
+    </div>
+    <img src="cute3.gif" class="gif" style="display:none;">
+    <div class="goodbye" style="display:none;">
+      <h2>Goodbye My Bro 😢</h2>
+      <p>You'll always be in my heart 💖</p>
+      <img src="cute4.gif" class="gif">
+    </div>
+  </div>
+
+  <script>
+    let current = 0;
+    function startQuiz() {
+      document.querySelector('.container').style.display = 'none';
+      document.getElementById('quiz').style.display = 'block';
+    }
+    function nextQuestion(correct) {
+      const questions = document.querySelectorAll('.question');
+      const gifs = document.querySelectorAll('.gif');
+      if (current < questions.length - 1) {
+        questions[current].style.display = 'none';
+        gifs[current].style.display = 'block';
+        setTimeout(() => {
+          gifs[current].style.display = 'none';
+          questions[current + 1].style.display = 'block';
+          current++;
+        }, 2000);
+      } else {
+        questions[current].style.display = 'none';
+        gifs[current].style.display = 'block';
+        setTimeout(() => {
+          gifs[current].style.display = 'none';
+          document.querySelector('.goodbye').style.display = 'block';
+        }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>
